@@ -12,6 +12,8 @@ const POSTS = gql`
   }
 `
 
+const WRITER_ID = "user-1";
+
 function App() {
   const [title, setTitle] = React.useState<string>();
   const [content, setContent] = React.useState<string>();
