@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+## Chapter1 실습 문제
+### 문제
+* React Project에, 직접 ApolloClient를 설치하고 Client와 Provider, Cache를 세팅하여 ApolloClient환경을 구성해봅니다.
+### 출제 의도
+* React에서 ApolloClient의 적용 방법을 익힙니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Chapter2 실습 문제
+### 문제
+* React Project에, 직접 ApolloClient를 설치하고 Client와 Provider, Cache를 세팅하여 ApolloClient환경을 구성해봅니다.
+* 가져올 post의 ID는 `post-1`을 사용해 주세요.
+* 로딩중일때에는 ```<div>Loading...</div>```를, 데이터가 없거나 에러가 났을때에는 ```<div>Error!</div>```를, 정상적으로 데이터가 들어왔을 때에는
+```
+<div className="App">
+  my post title is {post title}
+</div>
+```
+를 화면에 그려주세요.
 
-## Available Scripts
+### 출제 의도
+* React에서 ApolloClient를 사용해 쿼리를 요청하고 그 결과를 UI에 반영하는 방법을 익힙니다.
 
-In the project directory, you can run:
+## Chapter3 실습 문제
+### 문제
+* 버튼에 바인딩된 이벤트 함수를 createPost mutation을 요청하는 내용으로 완성하세요.
+* createPost mutation이 호출되었을때, apollo client 공식문서를 참고하여 posts 쿼리 데이터 캐시가 업데이트 되도록 해보세요.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 출제 의도
+* React에서 ApolloClient로 mutation 사용하는 방법을 익힙니다.
+* mutation에서 캐시를 업데이트하는 방법을 익힙니다.
