@@ -22,6 +22,7 @@ function App() {
   
   const handleClickAddButton = () => {
     // 여기서 mutation을 요청하세요.
+    // mutation 동작 후, https://www.apollographql.com/docs/react/data/mutations/#the-update-function 름 참고해서 posts 쿼리 캐시를 업데이트해보세요.
   }
   return (
     <div className="App">
