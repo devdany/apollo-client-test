@@ -29,7 +29,7 @@ function App() {
       <table>
         <tr>
           <th>제목</th>
-          <th>작성자</th>
+          <th>내용</th>
         </tr>
         {loading ? (
           <span>로딩중..</span>
