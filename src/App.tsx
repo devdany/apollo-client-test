@@ -1,10 +1,20 @@
 import React from 'react';
 import './App.css';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 
 const POSTS = gql`
   query {
     posts {
+      id
+      title
+      content
+    }
+  }
+`
+
+const CREATE_POST = gql`
+  mutation createPost($data: CreatePostInput!) {
+    createPost(data: $data) {
       id
       title
       content
@@ -17,9 +27,18 @@ function App() {
   const [content, setContent] = React.useState<string>();
 
   const { data, loading, error } = useQuery(POSTS);
+  const [craetePostMutation, { loading: createPostLoading }] = useMutation(CREATE_POST);
   
   const handleClickAddButton = () => {
     // 여기서 mutation을 요청하세요.
+    craetePostMutation({
+      variables: {
+        data: {
+          title,
+          content,
+        }
+      }
+    })
   }
   return (
     <div className="App">
