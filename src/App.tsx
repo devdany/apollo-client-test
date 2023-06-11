@@ -5,9 +5,7 @@ import { gql, useMutation, useQuery } from '@apollo/client';
 const POSTS = gql`
   query {
     posts {
-      id
-      title
-      content
+      ...PostTableItem
     }
   }
 `
@@ -15,9 +13,7 @@ const POSTS = gql`
 const CREATE_POST = gql`
   mutation createPost($data: CreatePostInput!) {
     createPost(data: $data) {
-      id
-      title
-      content
+      ...PostTableItem
     }
   }
 `
