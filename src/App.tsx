@@ -28,11 +28,31 @@ function App() {
   const [content, setContent] = React.useState<string>();
 
   const { data, loading, error } = useQuery(POSTS);
-  const [craetePostMutation, { loading: createPostLoading }] = useMutation(CREATE_POST);
+  const [craetePostMutation, { loading: createPostLoading }] = useMutation(CREATE_POST, {
+    update(cache, { data: { createPost } }) {
+      cache.modify({
+        fields: {
+          posts(exisitingPosts = []) {
+            const newPostRef = cache.writeFragment({
+              data: createPost,
+              fragment: gql`
+                fragment NewPost on Post {
+                  id
+                  title
+                  content
+                }
+              `
+            })
+          }
+        }
+      })
+    }
+  });
   
-  const handleClickAddButton = async () => {
+  const handleClickAddButton = () => {
     // 여기서 mutation을 요청하세요.
-    const result = await craetePostMutation({
+    // mutation 동작 후, https://www.apollographql.com/docs/react/data/mutations/#the-update-function 름 참고해서 posts 쿼리 캐시를 업데이트해보세요.
+    craetePostMutation({
       variables: {
         data: {
           title,
@@ -41,8 +61,6 @@ function App() {
         }
       }
     })
-
-    console.log(result)
   }
   return (
     <div className="App">
