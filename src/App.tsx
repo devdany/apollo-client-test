@@ -21,6 +21,7 @@ const CREATE_POST = gql`
     }
   }
 `
+const WRITER_ID = "user-1";
 
 function App() {
   const [title, setTitle] = React.useState<string>();
@@ -29,23 +30,26 @@ function App() {
   const { data, loading, error } = useQuery(POSTS);
   const [craetePostMutation, { loading: createPostLoading }] = useMutation(CREATE_POST);
   
-  const handleClickAddButton = () => {
+  const handleClickAddButton = async () => {
     // 여기서 mutation을 요청하세요.
-    craetePostMutation({
+    const result = await craetePostMutation({
       variables: {
         data: {
           title,
           content,
+          writerId: WRITER_ID,
         }
       }
     })
+
+    console.log(result)
   }
   return (
     <div className="App">
       <table>
         <tr>
           <th>제목</th>
-          <th>작성자</th>
+          <th>내용</th>
         </tr>
         {loading ? (
           <span>로딩중..</span>
@@ -70,7 +74,7 @@ function App() {
         <div>
           내용: <textarea value={content} onChange={(e) => setContent(e.target.value)} />
         </div>
-        <button onClick={handleClickAddButton}>포스트 추가</button>
+        <button onClick={handleClickAddButton} disabled={createPostLoading}>포스트 추가</button>
       </div>
     </div>
   );
